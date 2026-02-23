@@ -14,104 +14,86 @@
         }
 
         body {
-    font-family: 'Montserrat', sans-serif;
-    /* Zmiana tła na stałe, aby pokryło cały ekran */
-    background: #1a1a1d !important; 
-    background-image: linear-gradient(135deg, #1a1a1d 0%, #2c3e50 100%) !important;
-    background-attachment: fixed !important; /* Tło nie przesuwa się przy skrolowaniu */
-    color: var(--text-light);
-    margin: 0 !important;
-    padding: 0 !important;
-    display: flex;
-    justify-content: center;
-    align-items: flex-start; /* Zmiana z center na flex-start, by góra nie była ucięta */
-    min-height: 100vh !important;
-    width: 100% !important;
-    overflow-x: hidden;
-}
-
-.container {
-    width: 90%;
-    max-width: 450px;
-    padding: 30px 20px;
-    margin: 20px auto; /* Dodaje odstęp od góry i dołu na telefonie */
-    background: var(--card-bg);
-    backdrop-filter: blur(15px);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 35px;
-    text-align: center;
-    box-shadow: 0 20px 50px rgba(0,0,0,0.5);
-}
-
-        @keyframes fadeInScale {
-            0% { opacity: 0; transform: scale(0.9) translateY(20px); }
-            100% { opacity: 1; transform: scale(1) translateY(0); }
+            font-family: 'Montserrat', sans-serif;
+            background: #1a1a1d !important;
+            background-image: linear-gradient(135deg, #1a1a1d 0%, #2c3e50 100%) !important;
+            background-attachment: fixed !important;
+            color: var(--text-light);
+            margin: 0 !important;
+            padding: 0 !important;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            min-height: 100vh !important;
         }
 
-        /* Naprawiona animacja balansowania logo */
+        .container {
+            width: 90%;
+            max-width: 450px;
+            padding: 25px;
+            background: var(--card-bg);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 35px;
+            text-align: center;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+            margin: 20px auto;
+            box-sizing: border-box !important;
+        }
+
         .logo-container {
-            margin-bottom: 25px;
-            animation: bounce 3s infinite ease-in-out;
+            margin-bottom: 20px;
         }
 
         .logo-img {
-            max-width: 200px;
-            filter: drop-shadow(0 0 10px rgba(243, 156, 18, 0.5));
-        }
-
-        @keyframes bounce {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-15px); }
+            max-width: 180px;
+            filter: drop-shadow(0 0 10px rgba(243, 156, 18, 0.3));
         }
 
         .machine-title {
             font-weight: 700;
-            font-size: 20px;
+            font-size: 22px;
             margin: 10px 0;
             color: var(--primary-orange);
             text-transform: uppercase;
-            letter-spacing: 1px;
         }
 
-       .brand-frame {
-    width: 100% !important;
-    height: auto !important; /* Zmiana z 180px na auto, aby zmieścić napisy */
-    min-height: 200px !important;
-    background: rgba(0,0,0,0.2) !important;
-    border-radius: 20px !important;
-    margin: 15px 0 !important;
-    padding: 20px 10px !important; /* Dodany wewnętrzny odstęp */
-    display: flex !important;
-    flex-direction: column !important; /* Układ pionowy - napisy pod logo */
-    justify-content: center !important;
-    align-items: center !important;
-    border: 1px solid rgba(243, 156, 18, 0.2) !important;
-    overflow: hidden !important;
-}
+        .brand-frame {
+            width: 100% !important;
+            height: auto !important;
+            min-height: 200px !important;
+            background: rgba(0,0,0,0.3) !important;
+            border-radius: 25px !important;
+            margin: 20px 0 !important;
+            padding: 25px 15px !important;
+            display: flex !important;
+            flex-direction: column !important;
+            justify-content: center !important;
+            align-items: center !important;
+            /* Nowy, intensywny pomarańczowy kolor obramowania */
+            border: 2px solid var(--primary-orange) !important;
+            box-sizing: border-box !important;
+            overflow: hidden !important;
+        }
 
-.brand-logo-img {
-    max-width: 80% !important;
-    max-height: 80% !important;
-    width: auto !important;
-    height: auto !important;
-    object-fit: contain !important;
-    display: block !important;
-    /* Gwarancja braku przesunięć bocznych */
-    margin: 0 auto !important; 
-    padding: 0 !important;
-    /* Dodatkowe wymuszenie pozycji środkowej */
-    position: relative !important;
-    left: 0 !important;
-}
+        .brand-logo-img {
+            max-width: 80% !important;
+            max-height: 90px !important;
+            height: auto !important;
+            object-fit: contain !important;
+            margin-bottom: 20px !important;
+            display: block !important;
+        }
 
         .sn-badge {
             background: rgba(255, 255, 255, 0.1);
-            padding: 5px 15px;
+            padding: 6px 18px;
             border-radius: 50px;
-            font-size: 12px;
+            font-size: 13px;
+            font-weight: 700;
             display: inline-block;
-            margin-bottom: 15px;
-            border: 1px solid rgba(243, 156, 18, 0.3);
+            border: 1px solid rgba(243, 156, 18, 0.5);
+            color: var(--text-light);
         }
 
         .status-box {
@@ -120,7 +102,6 @@
             margin: 20px 0;
             font-weight: 700;
             font-size: 14px;
-            text-align: center;
             text-transform: uppercase;
         }
 
@@ -130,53 +111,39 @@
             padding: 15px;
             margin: 15px 0;
             text-align: left;
-            border: 1px solid rgba(255, 255, 255, 0.05);
         }
 
         .spec-row {
             display: flex;
             justify-content: space-between;
-            padding: 8px 0;
+            padding: 10px 0;
             border-bottom: 1px solid rgba(255, 255, 255, 0.05);
             font-size: 13px;
         }
 
         .spec-row:last-child { border-bottom: none; }
-        .spec-label { color: #888; }
+        .spec-label { color: #aaa; }
         .spec-val { color: var(--primary-orange); font-weight: bold; }
 
-        /* Poprawione przyciski: węższe i wyśrodkowane */
         .btn {
             display: block;
-            width: 80%; /* Zmniejszona szerokość */
-            margin: 12px auto; /* Wyśrodkowanie przycisków */
-            padding: 14px;
-            border: none;
+            width: 85%;
+            margin: 12px auto;
+            padding: 15px;
             border-radius: 15px;
             font-weight: 700;
             text-transform: uppercase;
             text-decoration: none;
             transition: 0.3s;
-            font-size: 12px;
+            font-size: 13px;
             text-align: center;
             box-sizing: border-box;
         }
 
-        .btn-call { 
-            background: var(--primary-orange); 
-            color: #121212; 
-            box-shadow: 0 8px 20px rgba(243, 156, 18, 0.3); 
-        }
-
-        .btn-ai { 
-            border: 2px solid var(--primary-orange); 
-            color: var(--primary-orange); 
-            background: transparent;
-        }
-
-        .btn:hover { transform: scale(1.05); filter: brightness(1.1); }
+        .btn-call { background: var(--primary-orange); color: #121212; }
+        .btn-ai { border: 2px solid var(--primary-orange); color: var(--primary-orange); background: transparent; }
+        .btn:hover { transform: scale(1.03); }
         .hidden { display: none; }
-
         footer { margin-top: 25px; font-size: 10px; color: rgba(255,255,255,0.2); letter-spacing: 3px; }
     </style>
 </head>
@@ -186,11 +153,14 @@
     <div class="logo-container">
         <img src="firmatlo.png" alt="Toolmex Truck" class="logo-img">
     </div>
-   <div class="brand-frame">
-    <img id="brand-logo" src="firmatlo.png" class="brand-logo-img">
-    <h2 id="machine-name" class="machine-title" style="font-size: 16px; margin: 5px 0 0 0;">Wczytywanie...</h2>
-    <div id="machine-sn" class="sn-badge" style="margin-bottom: 0; font-size: 10px; opacity: 0.8;">SN: ---</div>
-</div>
+
+    <h2 id="machine-name" class="machine-title">Wczytywanie...</h2>
+
+    <div class="brand-frame">
+        <img id="brand-logo" src="firmatlo.png" class="brand-logo-img">
+        <div id="machine-sn" class="sn-badge">SN: ---</div>
+    </div>
+
     <div id="status-box" class="status-box">Ładowanie...</div>
 
     <div class="specs-panel">
@@ -209,31 +179,26 @@
     window.onload = function() {
         const urlParams = new URLSearchParams(window.location.search);
         const sn = urlParams.get('sn');
-        document.getElementById('machine-sn').innerText = "SN: " + (sn || "BŁĄD");
-
+        
         if (!sn) {
             document.getElementById('machine-name').innerText = "Brak numeru SN";
+            document.getElementById('machine-sn').innerText = "SN: BŁĄD";
             return;
         }
 
-        // Pobieramy całą listę z pliku baza.json
+        document.getElementById('machine-sn').innerText = "SN: " + sn;
+
         fetch('baza.json')
-        .then(res => {
-            if (!res.ok) throw new Error("Nie znaleziono pliku baza.json");
-            return res.json();
-        })
+        .then(res => res.json())
         .then(baza => {
-            // SZUKANIE: Przeszukujemy listę w poszukiwaniu konkretnego SN
             const data = baza.find(item => item.sn.toUpperCase() === sn.toUpperCase());
 
             if (data) {
-                // Wypełnianie danych
                 document.getElementById('machine-name').innerText = data.pelna_nazwa;
                 document.getElementById('v-typ').innerText = data.typ;
                 document.getElementById('v-naped').innerText = data.naped;
                 document.getElementById('v-udzwig').innerText = data.udzwig;
 
-                // Obsługa logotypów
                 const logoImg = document.getElementById('brand-logo');
                 const marka = data.marka.toLowerCase();
 
@@ -243,7 +208,6 @@
                 else if(marka.includes('case')) logoImg.src = 'case-logo.png';
                 else logoImg.src = 'firmatlo.png';
 
-                // Obsługa statusu przeglądu
                 const sBox = document.getElementById('status-box');
                 if(data.status === 'alert') {
                     sBox.innerHTML = "● PRZEGLĄD WYMAGANY!";
@@ -254,17 +218,10 @@
                     sBox.innerHTML = "● Status: Przegląd aktualny";
                     sBox.style.color = "#2ecc71";
                     sBox.style.background = "rgba(46, 204, 113, 0.15)";
-                    document.getElementById('ai-btn').classList.remove('hidden');
                 }
             } else {
-                // Jeśli SN nie istnieje w pliku baza.json
-                document.getElementById('machine-name').innerText = "Maszyna nie znaleziona";
-                document.getElementById('status-box').innerHTML = "BŁĄD DANYCH";
+                document.getElementById('machine-name').innerText = "Nie znaleziono wozu";
             }
-        })
-        .catch(err => {
-            console.error(err);
-            document.getElementById('machine-name').innerText = "Błąd wczytywania bazy";
         });
     };
 </script>
