@@ -121,19 +121,20 @@
         .spec-val { color: var(--primary-orange); font-weight: bold; }
 
         .btn {
-            display: block;
-            width: 100%;
-            padding: 18px;
-            margin: 12px 0;
-            border: none;
-            border-radius: 15px;
-            font-weight: 700;
-            text-transform: uppercase;
-            text-decoration: none;
-            transition: 0.3s;
-            font-size: 14px;
-            text-align: center;
-        }
+    display: block;
+    width: 100%;
+    padding: 12px; /* Zmniejszono z 18px - to kluczowa zmiana wysokości */
+    margin: 8px 0; /* Zmniejszono odstępy między przyciskami */
+    border: none;
+    border-radius: 12px; /* Subtelniejsze zaokrąglenie pasujące do mniejszego przycisku */
+    font-weight: 700;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: 0.3s;
+    font-size: 12px; /* Zmniejszono z 14px, aby napisy nie były zbyt przytłaczające */
+    text-align: center;
+    box-sizing: border-box;
+}
 
         .btn-call { background: var(--primary-orange); color: #121212; box-shadow: 0 8px 20px rgba(243, 156, 18, 0.3); }
         .btn-ai { border: 2px solid var(--primary-orange); color: var(--primary-orange); }
