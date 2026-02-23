@@ -197,36 +197,60 @@
         const sn = urlParams.get('sn');
         document.getElementById('machine-sn').innerText = "SN: " + (sn || "BŁĄD");
 
-        // Połączenie z API CRM (Podstaw pod to swój adres)
-        fetch(`baza.json`)
-        .then(res => res.json())
-        .then(data => {
-            document.getElementById('machine-name').innerText = data.pelna_nazwa;
-            document.getElementById('v-typ').innerText = data.typ;
-            document.getElementById('v-naped').innerText = data.naped;
-            document.getElementById('v-udzwig').innerText = data.udzwig;
+        if (!sn) {
+            document.getElementById('machine-name').innerText = "Brak numeru SN";
+            return;
+        }
 
-            const logoImg = document.getElementById('brand-logo');
-            const marka = data.marka.toLowerCase();
+        // Pobieramy całą listę z pliku baza.json
+        fetch('baza.json')
+        .then(res => {
+            if (!res.ok) throw new Error("Nie znaleziono pliku baza.json");
+            return res.json();
+        })
+        .then(baza => {
+            // SZUKANIE: Przeszukujemy listę w poszukiwaniu konkretnego SN
+            const data = baza.find(item => item.sn.toUpperCase() === sn.toUpperCase());
 
-            if(marka.includes('hyundai')) logoImg.src = 'logo-hyundai.png';
-            else if(marka.includes('hangcha')) logoImg.src = 'logo-hangcha.png';
-            else if(marka.includes('merlo')) logoImg.src = 'logo-merlo.png';
-            else if(marka.includes('case')) logoImg.src = 'logo-case.png';
-            else logoImg.src = 'firmatlo.png';
+            if (data) {
+                // Wypełnianie danych
+                document.getElementById('machine-name').innerText = data.pelna_nazwa;
+                document.getElementById('v-typ').innerText = data.typ;
+                document.getElementById('v-naped').innerText = data.naped;
+                document.getElementById('v-udzwig').innerText = data.udzwig;
 
-            const sBox = document.getElementById('status-box');
-            if(data.status === 'alert') {
-                sBox.innerHTML = "● PRZEGLĄD WYMAGANY!";
-                sBox.style.color = "#e74c3c";
-                sBox.style.background = "rgba(231, 76, 60, 0.15)";
-                document.getElementById('ai-btn').classList.add('hidden');
+                // Obsługa logotypów
+                const logoImg = document.getElementById('brand-logo');
+                const marka = data.marka.toLowerCase();
+
+                if(marka.includes('hyundai')) logoImg.src = 'logo-hyundai.png';
+                else if(marka.includes('hangcha')) logoImg.src = 'logo-hangcha.png';
+                else if(marka.includes('merlo')) logoImg.src = 'logo-merlo.png';
+                else if(marka.includes('case')) logoImg.src = 'logo-case.png';
+                else logoImg.src = 'firmatlo.png';
+
+                // Obsługa statusu przeglądu
+                const sBox = document.getElementById('status-box');
+                if(data.status === 'alert') {
+                    sBox.innerHTML = "● PRZEGLĄD WYMAGANY!";
+                    sBox.style.color = "#e74c3c";
+                    sBox.style.background = "rgba(231, 76, 60, 0.15)";
+                    document.getElementById('ai-btn').classList.add('hidden');
+                } else {
+                    sBox.innerHTML = "● Status: Przegląd aktualny";
+                    sBox.style.color = "#2ecc71";
+                    sBox.style.background = "rgba(46, 204, 113, 0.15)";
+                    document.getElementById('ai-btn').classList.remove('hidden');
+                }
             } else {
-                sBox.innerHTML = "● Status: Przegląd aktualny";
-                sBox.style.color = "#2ecc71";
-                sBox.style.background = "rgba(46, 204, 113, 0.15)";
-                document.getElementById('ai-btn').classList.remove('hidden');
+                // Jeśli SN nie istnieje w pliku baza.json
+                document.getElementById('machine-name').innerText = "Maszyna nie znaleziona";
+                document.getElementById('status-box').innerHTML = "BŁĄD DANYCH";
             }
+        })
+        .catch(err => {
+            console.error(err);
+            document.getElementById('machine-name').innerText = "Błąd wczytywania bazy";
         });
     };
 </script>
