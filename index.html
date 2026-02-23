@@ -37,12 +37,12 @@
             border-radius: 30px;
             text-align: center;
             box-shadow: 0 20px 50px rgba(0,0,0,0.5);
-            animation: fadeInScale 0.8s ease-out;
+            animation: fadeInScale 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
         }
 
         @keyframes fadeInScale {
-            0% { opacity: 0; transform: scale(0.9); }
-            100% { opacity: 1; transform: scale(1); }
+            0% { opacity: 0; transform: scale(0.9) translateY(20px); }
+            100% { opacity: 1; transform: scale(1) translateY(0); }
         }
 
         /* Logo Toolmex */
@@ -78,12 +78,33 @@
             display: inline-block;
             margin-bottom: 20px;
             border: 1px solid rgba(243, 156, 18, 0.3);
+            color: #ccc;
+        }
+
+        .machine-img {
+            width: 100%;
+            border-radius: 20px;
+            margin: 10px 0;
+            border: 1px solid rgba(243, 156, 18, 0.3);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+        }
+
+        .status-box {
+            padding: 15px;
+            border-radius: 10px;
+            margin: 20px 0;
+            font-weight: 700;
+            font-size: 14px;
+            text-align: center;
+            text-transform: uppercase;
+            border: 1px solid transparent;
+            transition: 0.5s;
         }
 
         /* Tabela specyfikacji technicznej */
         .specs-panel {
-            background: rgba(0, 0, 0, 0.2);
-            border-radius: 15px;
+            background: rgba(0, 0, 0, 0.25);
+            border-radius: 20px;
             padding: 15px;
             margin: 15px 0;
             text-align: left;
@@ -93,7 +114,7 @@
         .spec-row {
             display: flex;
             justify-content: space-between;
-            padding: 6px 0;
+            padding: 8px 0;
             border-bottom: 1px solid rgba(255, 255, 255, 0.05);
             font-size: 13px;
         }
@@ -102,36 +123,18 @@
         .spec-label { color: #888; }
         .spec-val { color: var(--primary-orange); font-weight: bold; }
 
-        .status-box {
-            background: rgba(46, 204, 113, 0.2);
-            border-left: 5px solid #2ecc71;
-            padding: 15px;
-            border-radius: 10px;
-            margin: 20px 0;
-            font-weight: 400;
-            font-size: 14px;
-            text-align: left;
-            animation: slideIn 1s ease-out;
-        }
-
-        @keyframes slideIn {
-            0% { transform: translateX(-50px); opacity: 0; }
-            100% { transform: translateX(0); opacity: 1; }
-        }
-
-        /* Przyciski */
         .btn {
             display: block;
             width: 100%;
-            padding: 16px;
+            padding: 18px;
             margin: 12px 0;
             border: none;
-            border-radius: 12px;
+            border-radius: 15px;
             font-weight: 700;
             text-transform: uppercase;
             text-decoration: none;
             cursor: pointer;
-            transition: all 0.3s ease;
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             box-sizing: border-box;
             font-size: 14px;
             text-align: center;
@@ -139,8 +142,8 @@
 
         .btn-call {
             background: var(--primary-orange);
-            color: #fff;
-            box-shadow: 0 4px 15px rgba(243, 156, 18, 0.3);
+            color: #121212;
+            box-shadow: 0 8px 20px rgba(243, 156, 18, 0.3);
         }
 
         .btn-ai {
@@ -150,8 +153,7 @@
         }
 
         .btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+            transform: scale(1.03);
             filter: brightness(1.1);
         }
 
@@ -160,8 +162,8 @@
         footer {
             margin-top: 25px;
             font-size: 10px;
-            color: rgba(255,255,255,0.3);
-            letter-spacing: 2px;
+            color: rgba(255,255,255,0.2);
+            letter-spacing: 3px;
         }
     </style>
 </head>
@@ -169,19 +171,15 @@
 
 <div class="container">
     <div class="logo-container">
-        <img src="firmatlo.png" alt="Toolmex Truck Logo" class="logo-img">
+        <img src="firmatlo.png" alt="Toolmex Truck" class="logo-img">
     </div>
 
-    <div id="machine-title" class="machine-title">Wczytywanie...</div>
+    <h2 id="machine-title" class="machine-title">Wczytywanie...</h2>
     <div id="machine-sn" class="sn-badge">SN: ---</div>
 
-    <img id="machine-photo" src="firmatlo.png" 
-         alt="Wózek Widłowy" 
-         style="width: 100%; border-radius: 20px; margin: 10px 0; border: 1px solid rgba(243, 156, 18, 0.3);">
+    <img id="machine-photo" src="firmatlo.png" alt="Wózek Widłowy" class="machine-img">
 
-    <div id="status-indicator" class="status-box">
-        <span id="status-dot" style="color: #2ecc71;">●</span> <b id="status-text">Status: Przegląd aktualny</b>
-    </div>
+    <div id="status-indicator" class="status-box">ŁADOWANIE STATUSU...</div>
 
     <div class="specs-panel">
         <div class="spec-row"><span class="spec-label">Typ:</span> <span id="val-typ" class="spec-val">-</span></div>
@@ -193,7 +191,7 @@
     <a href="#" id="ai-chat-btn" class="btn btn-ai">Rozpocznij czat AI</a>
 
     <footer>
-        POZIOM EGZZ • SYSTEM REWOLUCJI IT
+        POZIOM EGZZ • TOOLMEX TRUCK
     </footer>
 </div>
 
@@ -207,8 +205,6 @@
         const nameH2 = document.getElementById('machine-title');
         const photoImg = document.getElementById('machine-photo');
         const statBox = document.getElementById('status-indicator');
-        const statText = document.getElementById('status-text');
-        const statDot = document.getElementById('status-dot');
         const snBadge = document.getElementById('machine-sn');
         const aiBtn = document.getElementById('ai-chat-btn');
         
@@ -218,7 +214,7 @@
 
         snBadge.innerText = "SN: " + (sn ? sn : "BRAK DANYCH");
 
-        // Dynamiczna specyfikacja i zdjęcia
+        // Dynamiczna specyfikacja i zdjęcia - Design Podstawowy dla wszystkich
         if (m === 'hyundai') {
             nameH2.innerText = "Hyundai Seria B-X";
             photoImg.src = "hyundai.png";
@@ -236,18 +232,18 @@
             photoImg.src = "firmatlo.png";
         }
 
-        // Logika statusu i ukrywania AI
+        // Logika statusu i widoczności przycisku AI
         if (s === 'alert') {
-            statText.innerText = "Status: PRZEGLĄD WYMAGANY!";
-            statDot.style.color = "#e74c3c";
-            statBox.style.background = "rgba(231, 76, 60, 0.2)";
-            statBox.style.borderLeft = "5px solid #e74c3c";
+            statBox.innerHTML = "● PRZEGLĄD WYMAGANY!";
+            statBox.style.color = "#e74c3c";
+            statBox.style.borderColor = "#e74c3c";
+            statBox.style.background = "rgba(231, 76, 60, 0.1)";
             aiBtn.classList.add('hidden');
         } else {
-            statText.innerText = "Status: Przegląd aktualny";
-            statDot.style.color = "#2ecc71";
-            statBox.style.background = "rgba(46, 204, 113, 0.2)";
-            statBox.style.borderLeft = "5px solid #2ecc71";
+            statBox.innerHTML = "● STATUS: Przegląd aktualny";
+            statBox.style.color = "#2ecc71";
+            statBox.style.borderColor = "#2ecc71";
+            statBox.style.background = "rgba(46, 204, 113, 0.1)";
             aiBtn.classList.remove('hidden');
         }
     };
