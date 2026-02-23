@@ -43,10 +43,20 @@
             100% { opacity: 1; transform: scale(1) translateY(0); }
         }
 
-        .logo-toolmex {
-            max-width: 200px;
+        /* Naprawiona animacja balansowania logo */
+        .logo-container {
             margin-bottom: 25px;
+            animation: bounce 3s infinite ease-in-out;
+        }
+
+        .logo-img {
+            max-width: 200px;
             filter: drop-shadow(0 0 10px rgba(243, 156, 18, 0.5));
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-15px); }
         }
 
         .machine-title {
@@ -58,7 +68,6 @@
             letter-spacing: 1px;
         }
 
-        /* Ramka na logo marki wózka */
         .brand-frame {
             width: 100%;
             height: 180px;
@@ -76,7 +85,6 @@
             max-width: 75%;
             max-height: 75%;
             object-fit: contain;
-            filter: drop-shadow(0 0 5px rgba(255,255,255,0.1));
         }
 
         .sn-badge {
@@ -120,25 +128,36 @@
         .spec-label { color: #888; }
         .spec-val { color: var(--primary-orange); font-weight: bold; }
 
+        /* Poprawione przyciski: węższe i wyśrodkowane */
         .btn {
-    display: block;
-    width: 100%;
-    padding: 12px; /* Zmniejszono z 18px - to kluczowa zmiana wysokości */
-    margin: 8px 0; /* Zmniejszono odstępy między przyciskami */
-    border: none;
-    border-radius: 12px; /* Subtelniejsze zaokrąglenie pasujące do mniejszego przycisku */
-    font-weight: 700;
-    text-transform: uppercase;
-    text-decoration: none;
-    transition: 0.3s;
-    font-size: 12px; /* Zmniejszono z 14px, aby napisy nie były zbyt przytłaczające */
-    text-align: center;
-    box-sizing: border-box;
-}
+            display: block;
+            width: 80%; /* Zmniejszona szerokość */
+            margin: 12px auto; /* Wyśrodkowanie przycisków */
+            padding: 14px;
+            border: none;
+            border-radius: 15px;
+            font-weight: 700;
+            text-transform: uppercase;
+            text-decoration: none;
+            transition: 0.3s;
+            font-size: 12px;
+            text-align: center;
+            box-sizing: border-box;
+        }
 
-        .btn-call { background: var(--primary-orange); color: #121212; box-shadow: 0 8px 20px rgba(243, 156, 18, 0.3); }
-        .btn-ai { border: 2px solid var(--primary-orange); color: var(--primary-orange); }
-        .btn:hover { transform: scale(1.02); filter: brightness(1.1); }
+        .btn-call { 
+            background: var(--primary-orange); 
+            color: #121212; 
+            box-shadow: 0 8px 20px rgba(243, 156, 18, 0.3); 
+        }
+
+        .btn-ai { 
+            border: 2px solid var(--primary-orange); 
+            color: var(--primary-orange); 
+            background: transparent;
+        }
+
+        .btn:hover { transform: scale(1.05); filter: brightness(1.1); }
         .hidden { display: none; }
 
         footer { margin-top: 25px; font-size: 10px; color: rgba(255,255,255,0.2); letter-spacing: 3px; }
@@ -147,7 +166,9 @@
 <body>
 
 <div class="container">
-    <img src="firmatlo.png" alt="Toolmex Truck" class="logo-toolmex">
+    <div class="logo-container">
+        <img src="firmatlo.png" alt="Toolmex Truck" class="logo-img">
+    </div>
     
     <h2 id="machine-name" class="machine-title">Wczytywanie...</h2>
     <div id="machine-sn" class="sn-badge">SN: ---</div>
@@ -156,7 +177,7 @@
         <img id="brand-logo" src="firmatlo.png" class="brand-logo-img">
     </div>
 
-    <div id="status-box" class="status-box">Czekam na dane...</div>
+    <div id="status-box" class="status-box">Ładowanie...</div>
 
     <div class="specs-panel">
         <div class="spec-row"><span class="spec-label">Typ:</span> <span id="v-typ" class="spec-val">-</span></div>
@@ -167,7 +188,7 @@
     <a href="tel:+48123456789" class="btn btn-call">Zadzwoń do serwisu</a>
     <a href="#" id="ai-btn" class="btn btn-ai">Rozpocznij czat AI</a>
 
-    <footer>POZIOM EGZZ • TOOLMEX TRUCK</footer>
+    <footer>TOOLMEX TRUCK</footer>
 </div>
 
 <script>
@@ -176,7 +197,7 @@
         const sn = urlParams.get('sn');
         document.getElementById('machine-sn').innerText = "SN: " + (sn || "BŁĄD");
 
-        // Połączenie z IT Cube
+        // Połączenie z API CRM (Podstaw pod to swój adres)
         fetch(`https://ADRES-CRM.pl/api/get?sn=${sn}`)
         .then(res => res.json())
         .then(data => {
@@ -185,7 +206,6 @@
             document.getElementById('v-naped').innerText = data.naped;
             document.getElementById('v-udzwig').innerText = data.udzwig;
 
-            // INTELIGENTNE LOGO - Logika w HTML
             const logoImg = document.getElementById('brand-logo');
             const marka = data.marka.toLowerCase();
 
@@ -195,7 +215,6 @@
             else if(marka.includes('case')) logoImg.src = 'logo-case.png';
             else logoImg.src = 'firmatlo.png';
 
-            // STATUS
             const sBox = document.getElementById('status-box');
             if(data.status === 'alert') {
                 sBox.innerHTML = "● PRZEGLĄD WYMAGANY!";
