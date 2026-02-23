@@ -1,51 +1,32 @@
 [
-  /* --- HYUNDAI: ELEKTRYCZNE 3-KOŁOWE --- */
   { "sn": "HYU-15BT-9U", "marka": "hyundai", "pelna_nazwa": "Hyundai 15BT-9U", "typ": "Wózek 3-kołowy", "naped": "Elektryczny", "udzwig": "1500 kg", "status": "ok" },
   { "sn": "HYU-18BT-9U", "marka": "hyundai", "pelna_nazwa": "Hyundai 18BT-9U", "typ": "Wózek 3-kołowy", "naped": "Elektryczny", "udzwig": "1800 kg", "status": "ok" },
   { "sn": "HYU-20BT-9U", "marka": "hyundai", "pelna_nazwa": "Hyundai 20BT-9U", "typ": "Wózek 3-kołowy", "naped": "Elektryczny", "udzwig": "2000 kg", "status": "ok" },
-
-  /* --- HYUNDAI: ELEKTRYCZNE 4-KOŁOWE (SERIA B-X / B-9U) --- */
   { "sn": "HYU-16B-9U", "marka": "hyundai", "pelna_nazwa": "Hyundai 16B-9U", "typ": "Wózek 4-kołowy", "naped": "Elektryczny", "udzwig": "1600 kg", "status": "ok" },
   { "sn": "HYU-25B-X", "marka": "hyundai", "pelna_nazwa": "Hyundai 25B-X", "typ": "Wózek 4-kołowy", "naped": "Elektryczny", "udzwig": "2500 kg", "status": "ok" },
   { "sn": "HYU-35B-X", "marka": "hyundai", "pelna_nazwa": "Hyundai 35B-X", "typ": "Wózek 4-kołowy", "naped": "Elektryczny", "udzwig": "3500 kg", "status": "ok" },
   { "sn": "HYU-50B-9", "marka": "hyundai", "pelna_nazwa": "Hyundai 50B-9 (80V)", "typ": "Wózek elektryczny ciężki", "naped": "Elektryczny", "udzwig": "5000 kg", "status": "ok" },
-
-  /* --- HYUNDAI: DIESEL (MAŁE, ŚREDNIE, CIĘŻKIE) --- */
   { "sn": "HYU-25D-9E", "marka": "hyundai", "pelna_nazwa": "Hyundai 25D-9E", "typ": "Wózek spalinowy", "naped": "Diesel", "udzwig": "2500 kg", "status": "ok" },
   { "sn": "HYU-33D-9", "marka": "hyundai", "pelna_nazwa": "Hyundai 33D-9", "typ": "Wózek spalinowy", "naped": "Diesel", "udzwig": "3300 kg", "status": "ok" },
   { "sn": "HYU-50D-9", "marka": "hyundai", "pelna_nazwa": "Hyundai 50D-9", "typ": "Wózek spalinowy", "naped": "Diesel", "udzwig": "5000 kg", "status": "ok" },
   { "sn": "HYU-80D-9", "marka": "hyundai", "pelna_nazwa": "Hyundai 80D-9", "typ": "Wózek spalinowy", "naped": "Diesel", "udzwig": "8000 kg", "status": "ok" },
   { "sn": "HYU-160D-9", "marka": "hyundai", "pelna_nazwa": "Hyundai 160D-9", "typ": "Wózek High Capacity", "naped": "Diesel", "udzwig": "16000 kg", "status": "ok" },
   { "sn": "HYU-250D-9", "marka": "hyundai", "pelna_nazwa": "Hyundai 250D-9", "typ": "Wózek High Capacity", "naped": "Diesel", "udzwig": "25000 kg", "status": "ok" },
-
-  /* --- HYUNDAI: LPG --- */
   { "sn": "HYU-25L-9A", "marka": "hyundai", "pelna_nazwa": "Hyundai 25L-9A", "typ": "Wózek spalinowy", "naped": "LPG", "udzwig": "2500 kg", "status": "ok" },
   { "sn": "HYU-50L-9", "marka": "hyundai", "pelna_nazwa": "Hyundai 50L-9", "typ": "Wózek spalinowy", "naped": "LPG", "udzwig": "5000 kg", "status": "ok" },
-
-  /* --- HYUNDAI: MAGAZYNOWE / RETRACKI --- */
   { "sn": "HYU-16BR-9", "marka": "hyundai", "pelna_nazwa": "Hyundai 16BR-9", "typ": "Wózek wysokiego składowania", "naped": "Elektryczny", "udzwig": "1600 kg", "status": "ok" },
   { "sn": "HYU-20BR-9", "marka": "hyundai", "pelna_nazwa": "Hyundai 20BR-9", "typ": "Wózek wysokiego składowania", "naped": "Elektryczny", "udzwig": "2000 kg", "status": "ok" },
-
-  /* --- HANGCHA: SERIA XC (LI-ION) --- */
   { "sn": "HC-XC15", "marka": "hangcha", "pelna_nazwa": "Hangcha CPD15-AC1 (XC)", "typ": "Wózek elektryczny Li-Ion", "naped": "Elektryczny", "udzwig": "1500 kg", "status": "ok" },
   { "sn": "HC-XC25", "marka": "hangcha", "pelna_nazwa": "Hangcha CPD25-AC1 (XC)", "typ": "Wózek elektryczny Li-Ion", "naped": "Elektryczny", "udzwig": "2500 kg", "status": "ok" },
   { "sn": "HC-XC35", "marka": "hangcha", "pelna_nazwa": "Hangcha CPD35-AC1 (XC)", "typ": "Wózek elektryczny Li-Ion", "naped": "Elektryczny", "udzwig": "3500 kg", "status": "ok" },
   { "sn": "HC-XC50", "marka": "hangcha", "pelna_nazwa": "Hangcha CPD50-AC1 (XC)", "typ": "Wózek elektryczny Li-Ion", "naped": "Elektryczny", "udzwig": "5000 kg", "status": "ok" },
-
-  /* --- HANGCHA: SERIA XF (DIESEL/LPG) --- */
   { "sn": "HC-XF15", "marka": "hangcha", "pelna_nazwa": "Hangcha CPCD15 (XF)", "typ": "Wózek spalinowy", "naped": "Diesel", "udzwig": "1500 kg", "status": "ok" },
   { "sn": "HC-XF25", "marka": "hangcha", "pelna_nazwa": "Hangcha CPCD25 (XF)", "typ": "Wózek spalinowy", "naped": "Diesel", "udzwig": "2500 kg", "status": "ok" },
   { "sn": "HC-XF35", "marka": "hangcha", "pelna_nazwa": "Hangcha CPCD35 (XF)", "typ": "Wózek spalinowy", "naped": "Diesel", "udzwig": "3500 kg", "status": "ok" },
-
-  /* --- HANGCHA: SERIA XH (WYSOKIE NAPIĘCIE) --- */
   { "sn": "HC-XH25", "marka": "hangcha", "pelna_nazwa": "Hangcha XH SERIES", "typ": "Wózek elektryczny (317V)", "naped": "Elektryczny", "udzwig": "2500 kg", "status": "ok" },
   { "sn": "HC-XH35", "marka": "hangcha", "pelna_nazwa": "Hangcha XH SERIES", "typ": "Wózek elektryczny (317V)", "naped": "Elektryczny", "udzwig": "3500 kg", "status": "ok" },
-
-  /* --- HANGCHA: TERENOWE --- */
   { "sn": "HC-TER-25", "marka": "hangcha", "pelna_nazwa": "Hangcha Terenowy 2WD/4WD", "typ": "Wózek terenowy", "naped": "Diesel", "udzwig": "2500 kg", "status": "ok" },
   { "sn": "HC-TER-50", "marka": "hangcha", "pelna_nazwa": "Hangcha Terenowy 4WD", "typ": "Wózek terenowy", "naped": "Diesel", "udzwig": "5000 kg", "status": "ok" },
-
-  /* --- HANGCHA: MAGAZYNOWE --- */
   { "sn": "HC-CBD15", "marka": "hangcha", "pelna_nazwa": "Hangcha CBD15-A2MC1", "typ": "Wózek paletowy", "naped": "Elektryczny", "udzwig": "1500 kg", "status": "ok" },
   { "sn": "HC-CDD12", "marka": "hangcha", "pelna_nazwa": "Hangcha CDD12-AC1", "typ": "Wózek masztowy", "naped": "Elektryczny", "udzwig": "1200 kg", "status": "ok" }
 ]
