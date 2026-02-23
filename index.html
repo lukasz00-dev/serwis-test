@@ -3,188 +3,75 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Toolmex Truck - Paszport Maszyny</title>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap" rel="stylesheet">
+    <title>Toolmex Truck - Serwis</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
     <style>
-        :root {
-            --primary-orange: #f39c12;
-            --dark-bg: #1a1a1d;
-            --card-bg: rgba(255, 255, 255, 0.05);
-            --text-light: #ffffff;
-        }
-
-        body {
-            font-family: 'Montserrat', sans-serif;
-            background: var(--dark-bg);
-            background: linear-gradient(135deg, #1a1a1d 0%, #2c3e50 100%);
-            color: var(--text-light);
-            margin: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-            overflow-x: hidden;
-        }
-
-        /* Animacja wejścia kontenera */
-        .container {
-            width: 90%;
-            max-width: 450px;
-            padding: 30px;
-            background: var(--card-bg);
-            backdrop-filter: blur(15px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 30px;
-            text-align: center;
-            box-shadow: 0 20px 50px rgba(0,0,0,0.5);
-            animation: fadeInScale 0.8s ease-out;
-        }
-
-        @keyframes fadeInScale {
-            0% { opacity: 0; transform: scale(0.9); }
-            100% { opacity: 1; transform: scale(1); }
-        }
-
-        /* Logo Toolmex */
-        .logo-container {
-            margin-bottom: 25px;
-            animation: bounce 2s infinite ease-in-out;
-        }
-
-        /* Jeśli masz plik logo.png, podmień src */
-        .logo-img {
-            max-width: 220px;
-            filter: drop-shadow(0 0 10px rgba(243, 156, 18, 0.5));
-        }
-
-        @keyframes bounce {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-10px); }
-        }
-
-        .machine-title {
-            font-weight: 700;
-            font-size: 22px;
-            margin: 10px 0;
-            color: var(--primary-orange);
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        .sn-badge {
-            background: rgba(255, 255, 255, 0.1);
-            padding: 5px 15px;
-            border-radius: 50px;
-            font-size: 13px;
-            display: inline-block;
-            margin-bottom: 20px;
-            border: 1px solid rgba(243, 156, 18, 0.3);
-        }
-
-        .status-box {
-            background: rgba(46, 204, 113, 0.2);
-            border-left: 5px solid #2ecc71;
-            padding: 15px;
-            border-radius: 10px;
-            margin: 20px 0;
-            font-weight: 400;
-            font-size: 14px;
-            text-align: left;
-            animation: slideIn 1s ease-out;
-        }
-
-        @keyframes slideIn {
-            0% { transform: translateX(-50px); opacity: 0; }
-            100% { transform: translateX(0); opacity: 1; }
-        }
-
-        /* Przyciski */
-        .btn {
-            display: block;
-            width: 100%;
-            padding: 16px;
-            margin: 12px 0;
-            border: none;
-            border-radius: 12px;
-            font-weight: 700;
-            text-transform: uppercase;
-            text-decoration: none;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            box-sizing: border-box;
-            font-size: 14px;
-        }
-
-        .btn-call {
-            background: var(--primary-orange);
-            color: #fff;
-            box-shadow: 0 4px 15px rgba(243, 156, 18, 0.3);
-        }
-
-        .btn-alert {
-            background: transparent;
-            border: 2px solid #e74c3c;
-            color: #e74c3c;
-        }
-
-        .btn-pdf {
-            background: rgba(255, 255, 255, 0.1);
-            color: #bbb;
-            font-size: 12px;
-        }
-
-        .btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 20px rgba(0,0,0,0.4);
-            filter: brightness(1.1);
-        }
-
-        .btn-alert:hover {
-            background: #e74c3c;
-            color: white;
-        }
-
-        footer {
-            margin-top: 25px;
-            font-size: 10px;
-            color: rgba(255,255,255,0.3);
-            letter-spacing: 2px;
-        }
+        :root { --orange: #f39c12; --dark: #121212; }
+        body { font-family: 'Montserrat', sans-serif; background: var(--dark); color: white; margin: 0; display: flex; justify-content: center; padding: 20px; min-height: 100vh; align-items: center; }
+        .container { width: 100%; max-width: 400px; background: rgba(255,255,255,0.05); backdrop-filter: blur(10px); border-radius: 30px; padding: 25px; text-align: center; border: 1px solid rgba(255,255,255,0.1); }
+        .logo { max-width: 200px; margin-bottom: 20px; filter: brightness(0) invert(1); }
+        .machine-img { width: 100%; border-radius: 15px; margin: 15px 0; border: 2px solid var(--orange); box-shadow: 0 0 15px rgba(243, 156, 18, 0.3); }
+        .btn { display: block; padding: 15px; margin: 10px 0; border-radius: 12px; text-decoration: none; font-weight: bold; text-transform: uppercase; transition: 0.3s; }
+        .btn-call { background: var(--orange); color: black; }
+        .btn-ai { border: 2px solid var(--orange); color: var(--orange); }
+        .status-box { padding: 12px; border-radius: 10px; font-weight: bold; margin-bottom: 15px; font-size: 14px; }
     </style>
 </head>
 <body>
-
-<div class="container">
-    <div class="logo-container">
-        <img src="firmatlo.png" alt="Toolmex Truck Logo" class="logo-img">
+    <div class="container">
+        <img src="tlofirmy.png" alt="Toolmex Truck" class="logo">
+        
+        <h2 id="nazwa-wozka" style="margin:0; color: var(--orange);">Ładowanie...</h2>
+        <p id="id-maszyny" style="font-size: 12px; color: #777;">SN: Wyszukiwanie...</p>
+        
+        <div id="display-status" class="status-box">● ŁADOWANIE STATUSU...</div>
+        
+        <img id="foto-wozka" src="tlofirmy.png" class="machine-img">
+        
+        <a href="tel:+48123456789" class="btn btn-call">Zadzwoń do serwisu</a>
+        <a href="#" class="btn btn-ai">Rozpocznij czat AI</a>
+        
+        <p style="font-size: 10px; color: #444; margin-top: 20px;">POZIOM EGZZ • TOOLMEX TRUCK 2026</p>
     </div>
 
-    <div class="machine-title">Hangcha Seria XC</div>
-    <div class="sn-badge">SN: TEST-XC-2024-001</div>
+    <script>
+        // Logika "POZIOM egzz" - kameleon
+        const urlParams = new URLSearchParams(window.location.search);
+        const model = urlParams.get('m');     // m jak model
+        const stan = urlParams.get('s');      // s jak stan
+        const sn = urlParams.get('sn') || "000000"; // sn jak numer seryjny
 
-    <img src="wozek1.png" 
-         alt="Wózek Widłowy" 
-         style="width: 100%; border-radius: 20px; margin: 10px 0;">
+        const tytul = document.getElementById('nazwa-wozka');
+        const foto = document.getElementById('foto-wozka');
+        const box = document.getElementById('display-status');
+        const serial = document.getElementById('id-maszyny');
 
-    <div class="status-box">
-        <span style="color: #2ecc71;">●</span> <b>Status:</b> Przegląd aktualny<br>
-        <span style="font-size: 12px; color: #aaa;">Następny przegląd: 15.01.2025</span>
-    </div>
+        serial.innerText = "SN: " + sn;
 
-    <a href="tel:+48123456789" class="btn btn-call">Zadzwoń do serwisu</a>
-    <a href="#" class="btn btn-alert">Zgłoś awarię (AI)</a>
-    <a href="https://www.toolmex-truck.com.pl/produkt/hangcha-1300-1500-1600-1800-2000-kg-3-kolowe-seria-xc-80v/" 
-       class="btn btn-pdf" target="_blank">Specyfikacja Techniczna</a>
+        // Wybór wózka (zdjęcie i nazwa)
+        if (model === 'hyundai') {
+            tytul.innerText = "Hyundai - Seria 9";
+            foto.src = "hyundai.png";
+        } else if (model === 'hangcha') {
+            tytul.innerText = "Hangcha Seria XC";
+            foto.src = "wozek1.png";
+        } else {
+            tytul.innerText = "Wózek Toolmex Truck";
+            foto.src = "tlofirmy.png"; 
+        }
 
-    <footer>
-        POZIOM EGZZ • SYSTEM REWOLUCJI IT
-    </footer>
-</div>
-
-<script>
-    // Tutaj wklej kod bota, który już masz gotowy.
-    // Bot pojawi się jako dymek nad tą piękną stroną.
-</script>
-
+        // Wybór statusu (kolor i napis)
+        if (stan === 'alert') {
+            box.innerHTML = "● PRZEGLĄD WYMAGANY!";
+            box.style.background = "rgba(231, 76, 60, 0.2)";
+            box.style.color = "#e74c3c";
+            box.style.border = "1px solid #e74c3c";
+        } else {
+            box.innerHTML = "● PRZEGLĄD AKTUALNY";
+            box.style.background = "rgba(46, 204, 113, 0.2)";
+            box.style.color = "#2ecc71";
+            box.style.border = "1px solid #2ecc71";
+        }
+    </script>
 </body>
 </html>
