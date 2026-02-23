@@ -11,7 +11,7 @@
   { "sn": "HYU-50D-9", "marka": "hyundai", "pelna_nazwa": "Hyundai 50D-9", "typ": "Wózek spalinowy", "naped": "Diesel", "udzwig": "5000 kg", "status": "ok" },
   { "sn": "HYU-80D-9", "marka": "hyundai", "pelna_nazwa": "Hyundai 80D-9", "typ": "Wózek spalinowy", "naped": "Diesel", "udzwig": "8000 kg", "status": "ok" },
   { "sn": "HYU-160D-9", "marka": "hyundai", "pelna_nazwa": "Hyundai 160D-9", "typ": "Wózek High Capacity", "naped": "Diesel", "udzwig": "16000 kg", "status": "ok" },
-  { "sn": "HYU-250D-9", "marka": "hyundai", "pelna_nazwa": "Hyundai 250D-9", "typ": "Wózek High Capacity", "naped": "Diesel", "udzwig": "25000 kg", "status": "ok" },
+  { "sn": "HYU-250D-9", "marka": "hyundai", "pelna_nazwa": "Hyundai 250D-9", "typ": "Wózek High Capacity", "naped": "Diesel", "udzwig": "25000 kg", "status": "alert" },
   { "sn": "HYU-25L-9A", "marka": "hyundai", "pelna_nazwa": "Hyundai 25L-9A", "typ": "Wózek spalinowy", "naped": "LPG", "udzwig": "2500 kg", "status": "ok" },
   { "sn": "HYU-50L-9", "marka": "hyundai", "pelna_nazwa": "Hyundai 50L-9", "typ": "Wózek spalinowy", "naped": "LPG", "udzwig": "5000 kg", "status": "ok" },
   { "sn": "HYU-16BR-9", "marka": "hyundai", "pelna_nazwa": "Hyundai 16BR-9", "typ": "Wózek wysokiego składowania", "naped": "Elektryczny", "udzwig": "1600 kg", "status": "ok" },
