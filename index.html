@@ -3,18 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Toolmex Truck - Panel Serwisowy</title>
+    <title>Toolmex Truck - System Serwisowy</title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
     <style>
         :root { 
             --orange: #f39c12; 
             --dark: #121212; 
-            --card: #1e272e; 
+            --card-gradient: linear-gradient(145deg, #2c3e50, #1e272e); 
         }
         
         body { 
             font-family: 'Montserrat', sans-serif; 
-            background: var(--dark); 
+            background: radial-gradient(circle at center, #1e272e 0%, #121212 100%); 
             color: white; 
             margin: 0; 
             display: flex; 
@@ -24,187 +24,170 @@
             align-items: center; 
         }
 
+        /* Animacja wejścia karty */
         .container { 
             width: 100%; 
-            max-width: 400px; 
-            background: var(--card); 
-            border-radius: 30px; 
-            padding: 25px; 
+            max-width: 420px; 
+            background: var(--card-gradient); 
+            border-radius: 35px; 
+            padding: 30px; 
             text-align: center; 
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5); 
+            box-shadow: 0 20px 50px rgba(0,0,0,0.6); 
+            border: 1px solid rgba(255,255,255,0.1);
+            animation: slideUp 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
+        }
+
+        @keyframes slideUp {
+            0% { opacity: 0; transform: translateY(30px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+
+        .logo { max-width: 190px; margin-bottom: 25px; filter: drop-shadow(0 0 8px rgba(243, 156, 18, 0.2)); }
+        
+        .machine-title { color: var(--orange); text-transform: uppercase; margin-bottom: 5px; letter-spacing: 1px; }
+
+        .sn-label { 
+            background: rgba(0,0,0,0.3); 
+            padding: 5px 15px; 
+            border-radius: 20px; 
+            font-size: 12px; 
+            display: inline-block; 
+            margin-bottom: 10px;
+            color: #888;
             border: 1px solid rgba(255,255,255,0.05);
         }
 
-        .logo { max-width: 180px; margin-bottom: 20px; }
-        
         .machine-img { 
             width: 100%; 
-            border-radius: 15px; 
+            border-radius: 20px; 
             margin: 15px 0; 
-            border: 1px solid var(--orange); 
-            box-shadow: 0 0 15px rgba(243, 156, 18, 0.2);
+            border: 1px solid rgba(243, 156, 18, 0.4); 
+            box-shadow: 0 10px 20px rgba(0,0,0,0.4);
         }
 
-        .sn-label { 
-            background: rgba(255,255,255,0.1); 
-            padding: 4px 12px; 
-            border-radius: 20px; 
-            font-size: 11px; 
-            display: inline-block; 
-            margin-bottom: 5px;
-            color: #aaa;
+        /* Specyfikacja zamiast przycisku */
+        .specs-panel {
+            background: rgba(0,0,0,0.25);
+            border-radius: 20px;
+            padding: 15px;
+            margin: 15px 0;
+            text-align: left;
+            border: 1px solid rgba(255,255,255,0.03);
         }
+
+        .spec-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 8px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+            font-size: 13px;
+        }
+
+        .spec-row:last-child { border-bottom: none; }
+        .spec-label { color: #7f8c8d; }
+        .spec-val { color: var(--orange); font-weight: bold; }
 
         .status-box { 
-            padding: 12px; 
-            border-radius: 10px; 
+            padding: 15px; 
+            border-radius: 15px; 
             font-weight: bold; 
-            margin-bottom: 15px; 
+            margin-bottom: 20px; 
             font-size: 14px;
+            background: rgba(255,255,255,0.03);
             border: 1px solid rgba(255,255,255,0.1);
         }
 
-        /* Sekcja parametrów technicznych */
-        .specs-list { 
-            text-align: left; 
-            background: rgba(0,0,0,0.2); 
-            padding: 15px; 
-            border-radius: 15px; 
-            margin-bottom: 20px; 
-            font-size: 13px; 
-        }
-        
-        .spec-item { 
-            display: flex; 
-            justify-content: space-between; 
-            padding: 8px 0; 
-            border-bottom: 1px solid rgba(255,255,255,0.05); 
-        }
-        
-        .spec-item:last-child { border-bottom: none; }
-        
-        .spec-label { color: #888; }
-        
-        .spec-value { font-weight: bold; color: var(--orange); }
-
         .btn { 
             display: block; 
-            padding: 16px; 
+            padding: 18px; 
             margin: 12px 0; 
-            border-radius: 15px; 
+            border-radius: 18px; 
             text-decoration: none; 
             font-weight: bold; 
             text-transform: uppercase; 
-            transition: 0.3s; 
+            transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); 
             font-size: 14px; 
         }
 
-        .btn-call { 
-            background: var(--orange); 
-            color: black; 
-            box-shadow: 0 4px 15px rgba(243, 156, 18, 0.3);
-        }
-
-        .btn-ai { 
-            border: 1px solid var(--orange); 
-            color: var(--orange); 
-        }
-
-        .btn:hover { transform: translateY(-2px); filter: brightness(1.1); }
+        .btn-call { background: var(--orange); color: #121212; box-shadow: 0 8px 20px rgba(243, 156, 18, 0.3); }
+        .btn-ai { border: 2px solid var(--orange); color: var(--orange); }
+        .btn:hover { transform: scale(1.03); filter: brightness(1.1); }
 
         .hidden { display: none; }
-
-        footer { 
-            margin-top: 20px; 
-            font-size: 9px; 
-            color: #444; 
-            letter-spacing: 2px; 
-            text-transform: uppercase;
-        }
+        footer { margin-top: 25px; font-size: 10px; color: #555; letter-spacing: 3px; }
     </style>
 </head>
 <body>
     <div class="container">
-        <img src="tlofirmy.png" alt="Toolmex Truck" class="logo">
+        <img src="firmatlo.png" alt="Toolmex Truck" class="logo">
         
-        <h2 id="nazwa-wozka" style="color: var(--orange); margin-bottom: 5px;">Wczytywanie...</h2>
-        <div id="id-maszyny" class="sn-label">SN: ---</div>
+        <h2 id="machine-name" class="machine-title">Wczytywanie...</h2>
+        <div id="machine-sn" class="sn-label">SN: ---</div>
         
-        <img id="foto-wozka" src="tlofirmy.png" class="machine-img">
+        <img id="machine-photo" src="firmatlo.png" class="machine-img">
         
-        <div id="display-status" class="status-box">ŁADOWANIE STATUSU...</div>
+        <div id="status-indicator" class="status-box">ŁADOWANIE STATUSU...</div>
 
-        <div class="specs-list">
-            <div class="spec-item"><span class="spec-label">Typ:</span> <span id="spec-typ" class="spec-value">-</span></div>
-            <div class="spec-item"><span class="spec-label">Napęd:</span> <span id="spec-naped" class="spec-value">-</span></div>
-            <div class="spec-item"><span class="spec-label">Udźwig:</span> <span id="spec-udzwig" class="spec-value">-</span></div>
+        <div class="specs-panel">
+            <div class="spec-row"><span class="spec-label">Typ:</span> <span id="val-typ" class="spec-val">-</span></div>
+            <div class="spec-row"><span class="spec-label">Napęd:</span> <span id="val-naped" class="spec-val">-</span></div>
+            <div class="spec-row"><span class="spec-label">Udźwig:</span> <span id="val-udzwig" class="spec-val">-</span></div>
         </div>
         
         <a href="tel:+48123456789" class="btn btn-call">Zadzwoń do serwisu</a>
-        
-        <a href="#" id="btn-bot-ai" class="btn btn-ai">Rozpocznij czat AI</a>
+        <a href="#" id="ai-chat-btn" class="btn btn-ai">Rozpocznij czat AI</a>
         
         <footer>POZIOM EGZZ • TOOLMEX TRUCK</footer>
     </div>
 
     <script>
         window.onload = function() {
-            // Pobieranie danych z linku
             const urlParams = new URLSearchParams(window.location.search);
-            const m = urlParams.get('m');     // model: hyundai / hangcha
-            const s = urlParams.get('s');      // stan: ok / alert
-            const sn = urlParams.get('sn');    // numer seryjny
+            const m = urlParams.get('m');     
+            const s = urlParams.get('s');      
+            const sn = urlParams.get('sn');    
 
-            // Elementy strony do podmiany
-            const tytul = document.getElementById('nazwa-wozka');
-            const foto = document.getElementById('foto-wozka');
-            const box = document.getElementById('display-status');
-            const serial = document.getElementById('id-maszyny');
-            const botBtn = document.getElementById('btn-bot-ai');
+            const nameH2 = document.getElementById('machine-name');
+            const photoImg = document.getElementById('machine-photo');
+            const statBox = document.getElementById('status-indicator');
+            const snLabel = document.getElementById('machine-sn');
+            const aiBtn = document.getElementById('ai-chat-btn');
             
-            const sTyp = document.getElementById('spec-typ');
-            const sNaped = document.getElementById('spec-naped');
-            const sUdzwig = document.getElementById('spec-udzwig');
+            const vTyp = document.getElementById('val-typ');
+            const vNaped = document.getElementById('val-naped');
+            const vUdzwig = document.getElementById('val-udzwig');
 
-            // 1. Ustawienie numeru seryjnego
-            serial.innerText = "SN: " + (sn ? sn : "DANE NIEDOSTĘPNE");
+            snLabel.innerText = "SN: " + (sn ? sn : "BRAK DANYCH");
 
-            // 2. Logika wyboru modelu i specyfikacji
+            // Jednolita logika dla każdego linku
             if (m === 'hyundai') {
-                tytul.innerText = "Hyundai Seria B-X";
-                foto.src = "hyundai.png";
-                sTyp.innerText = "Wózek widłowy";
-                sNaped.innerText = "Elektryczny (AC)";
-                sUdzwig.innerText = "4000kg - 5500kg";
+                nameH2.innerText = "Hyundai Seria B-X";
+                photoImg.src = "hyundai.png";
+                vTyp.innerText = "Wózek widłowy";
+                vNaped.innerText = "Elektryczny (AC)";
+                vUdzwig.innerText = "4000kg - 5500kg";
             } else if (m === 'hangcha') {
-                tytul.innerText = "Hangcha Seria XC";
-                foto.src = "wozek1.png";
-                sTyp.innerText = "Wózek widłowy";
-                sNaped.innerText = "Elektryczny (Li-Ion)";
-                sUdzwig.innerText = "1300kg - 2000kg";
+                nameH2.innerText = "Hangcha Seria XC";
+                photoImg.src = "wozek1.png";
+                vTyp.innerText = "Wózek widłowy";
+                vNaped.innerText = "Elektryczny (Li-Ion)";
+                vUdzwig.innerText = "1300kg - 2000kg";
             } else {
-                tytul.innerText = "Wózek Toolmex";
-                foto.src = "tlofirmy.png";
-                sTyp.innerText = "Maszyna";
-                sNaped.innerText = "N/D";
-                sUdzwig.innerText = "N/D";
+                nameH2.innerText = "Wózek Toolmex";
+                photoImg.src = "firmatlo.png";
             }
 
-            // 3. Logika statusu i widoczności przycisku AI
+            // Spójny design statusu
             if (s === 'alert') {
-                box.innerHTML = "● PRZEGLĄD WYMAGANY!";
-                box.style.color = "#e74c3c"; // Czerwony kolor tekstu
-                box.style.borderColor = "#e74c3c";
-                
-                // Ukrycie bota AI przy wymaganym przeglądzie
-                botBtn.classList.add('hidden');
+                statBox.innerHTML = "● PRZEGLĄD WYMAGANY!";
+                statBox.style.color = "#e74c3c";
+                statBox.style.borderColor = "#e74c3c";
+                aiBtn.classList.add('hidden');
             } else {
-                box.innerHTML = "● PRZEGLĄD AKTUALNY";
-                box.style.color = "#2ecc71"; // Zielony kolor tekstu
-                box.style.borderColor = "#2ecc71";
-                
-                // Pokazanie bota AI
-                botBtn.classList.remove('hidden');
+                statBox.innerHTML = "● STATUS: Przegląd aktualny";
+                statBox.style.color = "#2ecc71";
+                statBox.style.borderColor = "#2ecc71";
+                aiBtn.classList.remove('hidden');
             }
         };
     </script>
