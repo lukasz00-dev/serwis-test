@@ -70,12 +70,14 @@
 
        .brand-frame {
     width: 100% !important;
-    height: 180px !important;
+    height: auto !important; /* Zmiana z 180px na auto, aby zmieścić napisy */
+    min-height: 200px !important;
     background: rgba(0,0,0,0.2) !important;
     border-radius: 20px !important;
     margin: 15px 0 !important;
-    /* To są kluczowe linie do centrowania: */
+    padding: 20px 10px !important; /* Dodany wewnętrzny odstęp */
     display: flex !important;
+    flex-direction: column !important; /* Układ pionowy - napisy pod logo */
     justify-content: center !important;
     align-items: center !important;
     border: 1px solid rgba(243, 156, 18, 0.2) !important;
