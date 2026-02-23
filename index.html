@@ -15,7 +15,6 @@
 
         body {
             font-family: 'Montserrat', sans-serif;
-            background: var(--dark-bg);
             background: linear-gradient(135deg, #1a1a1d 0%, #2c3e50 100%);
             color: var(--text-light);
             margin: 0;
@@ -26,7 +25,6 @@
             overflow-x: hidden;
         }
 
-        /* Animacja wejścia kontenera */
         .container {
             width: 90%;
             max-width: 450px;
@@ -34,7 +32,7 @@
             background: var(--card-bg);
             backdrop-filter: blur(15px);
             border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 30px;
+            border-radius: 35px;
             text-align: center;
             box-shadow: 0 20px 50px rgba(0,0,0,0.5);
             animation: fadeInScale 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
@@ -45,63 +43,62 @@
             100% { opacity: 1; transform: scale(1) translateY(0); }
         }
 
-        /* Logo Toolmex */
-        .logo-container {
+        .logo-toolmex {
+            max-width: 200px;
             margin-bottom: 25px;
-            animation: bounce 2s infinite ease-in-out;
-        }
-
-        .logo-img {
-            max-width: 220px;
             filter: drop-shadow(0 0 10px rgba(243, 156, 18, 0.5));
-        }
-
-        @keyframes bounce {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-10px); }
         }
 
         .machine-title {
             font-weight: 700;
-            font-size: 22px;
+            font-size: 20px;
             margin: 10px 0;
             color: var(--primary-orange);
             text-transform: uppercase;
             letter-spacing: 1px;
         }
 
+        /* Ramka na logo marki wózka */
+        .brand-frame {
+            width: 100%;
+            height: 180px;
+            background: rgba(0,0,0,0.2);
+            border-radius: 20px;
+            margin: 15px 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: 1px solid rgba(243, 156, 18, 0.2);
+            box-shadow: inset 0 0 20px rgba(0,0,0,0.3);
+        }
+
+        .brand-logo-img {
+            max-width: 75%;
+            max-height: 75%;
+            object-fit: contain;
+            filter: drop-shadow(0 0 5px rgba(255,255,255,0.1));
+        }
+
         .sn-badge {
             background: rgba(255, 255, 255, 0.1);
             padding: 5px 15px;
             border-radius: 50px;
-            font-size: 13px;
+            font-size: 12px;
             display: inline-block;
-            margin-bottom: 20px;
+            margin-bottom: 15px;
             border: 1px solid rgba(243, 156, 18, 0.3);
-            color: #ccc;
-        }
-
-        .machine-img {
-            width: 100%;
-            border-radius: 20px;
-            margin: 10px 0;
-            border: 1px solid rgba(243, 156, 18, 0.3);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.3);
         }
 
         .status-box {
             padding: 15px;
-            border-radius: 10px;
+            border-radius: 12px;
             margin: 20px 0;
             font-weight: 700;
             font-size: 14px;
             text-align: center;
             text-transform: uppercase;
-            border: 1px solid transparent;
-            transition: 0.5s;
         }
 
-        /* Tabela specyfikacji technicznej */
         .specs-panel {
             background: rgba(0, 0, 0, 0.25);
             border-radius: 20px;
@@ -133,121 +130,85 @@
             font-weight: 700;
             text-transform: uppercase;
             text-decoration: none;
-            cursor: pointer;
-            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            box-sizing: border-box;
+            transition: 0.3s;
             font-size: 14px;
             text-align: center;
         }
 
-        .btn-call {
-            background: var(--primary-orange);
-            color: #121212;
-            box-shadow: 0 8px 20px rgba(243, 156, 18, 0.3);
-        }
-
-        .btn-ai {
-            background: transparent;
-            border: 2px solid var(--primary-orange);
-            color: var(--primary-orange);
-        }
-
-        .btn:hover {
-            transform: scale(1.03);
-            filter: brightness(1.1);
-        }
-
+        .btn-call { background: var(--primary-orange); color: #121212; box-shadow: 0 8px 20px rgba(243, 156, 18, 0.3); }
+        .btn-ai { border: 2px solid var(--primary-orange); color: var(--primary-orange); }
+        .btn:hover { transform: scale(1.02); filter: brightness(1.1); }
         .hidden { display: none; }
 
-        footer {
-            margin-top: 25px;
-            font-size: 10px;
-            color: rgba(255,255,255,0.2);
-            letter-spacing: 3px;
-        }
+        footer { margin-top: 25px; font-size: 10px; color: rgba(255,255,255,0.2); letter-spacing: 3px; }
     </style>
 </head>
 <body>
 
 <div class="container">
-    <div class="logo-container">
-        <img src="firmatlo.png" alt="Toolmex Truck" class="logo-img">
-    </div>
-
-    <h2 id="machine-title" class="machine-title">Wczytywanie...</h2>
+    <img src="firmatlo.png" alt="Toolmex Truck" class="logo-toolmex">
+    
+    <h2 id="machine-name" class="machine-title">Wczytywanie...</h2>
     <div id="machine-sn" class="sn-badge">SN: ---</div>
 
-    <img id="machine-photo" src="firmatlo.png" alt="Wózek Widłowy" class="machine-img">
+    <div class="brand-frame">
+        <img id="brand-logo" src="firmatlo.png" class="brand-logo-img">
+    </div>
 
-    <div id="status-indicator" class="status-box">ŁADOWANIE STATUSU...</div>
+    <div id="status-box" class="status-box">Czekam na dane...</div>
 
     <div class="specs-panel">
-        <div class="spec-row"><span class="spec-label">Typ:</span> <span id="val-typ" class="spec-val">-</span></div>
-        <div class="spec-row"><span class="spec-label">Napęd:</span> <span id="val-naped" class="spec-val">-</span></div>
-        <div class="spec-row"><span class="spec-label">Udźwig:</span> <span id="val-udzwig" class="spec-val">-</span></div>
+        <div class="spec-row"><span class="spec-label">Typ:</span> <span id="v-typ" class="spec-val">-</span></div>
+        <div class="spec-row"><span class="spec-label">Napęd:</span> <span id="v-naped" class="spec-val">-</span></div>
+        <div class="spec-row"><span class="spec-label">Udźwig:</span> <span id="v-udzwig" class="spec-val">-</span></div>
     </div>
 
     <a href="tel:+48123456789" class="btn btn-call">Zadzwoń do serwisu</a>
-    <a href="#" id="ai-chat-btn" class="btn btn-ai">Rozpocznij czat AI</a>
+    <a href="#" id="ai-btn" class="btn btn-ai">Rozpocznij czat AI</a>
 
-    <footer>
-        POZIOM EGZZ • TOOLMEX TRUCK
-    </footer>
+    <footer>POZIOM EGZZ • TOOLMEX TRUCK</footer>
 </div>
 
 <script>
     window.onload = function() {
         const urlParams = new URLSearchParams(window.location.search);
-        const m = urlParams.get('m');     
-        const s = urlParams.get('s');      
-        const sn = urlParams.get('sn');    
+        const sn = urlParams.get('sn');
+        document.getElementById('machine-sn').innerText = "SN: " + (sn || "BŁĄD");
 
-        const nameH2 = document.getElementById('machine-title');
-        const photoImg = document.getElementById('machine-photo');
-        const statBox = document.getElementById('status-indicator');
-        const snBadge = document.getElementById('machine-sn');
-        const aiBtn = document.getElementById('ai-chat-btn');
-        
-        const vTyp = document.getElementById('val-typ');
-        const vNaped = document.getElementById('val-naped');
-        const vUdzwig = document.getElementById('val-udzwig');
+        // Połączenie z IT Cube
+        fetch(`https://ADRES-CRM.pl/api/get?sn=${sn}`)
+        .then(res => res.json())
+        .then(data => {
+            document.getElementById('machine-name').innerText = data.pelna_nazwa;
+            document.getElementById('v-typ').innerText = data.typ;
+            document.getElementById('v-naped').innerText = data.naped;
+            document.getElementById('v-udzwig').innerText = data.udzwig;
 
-        snBadge.innerText = "SN: " + (sn ? sn : "BRAK DANYCH");
+            // INTELIGENTNE LOGO - Logika w HTML
+            const logoImg = document.getElementById('brand-logo');
+            const marka = data.marka.toLowerCase();
 
-        // Dynamiczna specyfikacja i zdjęcia - Design Podstawowy dla wszystkich
-        if (m === 'hyundai') {
-            nameH2.innerText = "Hyundai Seria B-X";
-            photoImg.src = "hyundai.png";
-            vTyp.innerText = "Wózek widłowy";
-            vNaped.innerText = "Elektryczny (AC)";
-            vUdzwig.innerText = "4000kg - 5500kg";
-        } else if (m === 'hangcha') {
-            nameH2.innerText = "Hangcha Seria XC";
-            photoImg.src = "wozek1.png";
-            vTyp.innerText = "Wózek widłowy";
-            vNaped.innerText = "Elektryczny (Li-Ion)";
-            vUdzwig.innerText = "1300kg - 2000kg";
-        } else {
-            nameH2.innerText = "Wózek Toolmex Truck";
-            photoImg.src = "firmatlo.png";
-        }
+            if(marka.includes('hyundai')) logoImg.src = 'logo-hyundai.png';
+            else if(marka.includes('hangcha')) logoImg.src = 'logo-hangcha.png';
+            else if(marka.includes('merlo')) logoImg.src = 'logo-merlo.png';
+            else if(marka.includes('case')) logoImg.src = 'logo-case.png';
+            else logoImg.src = 'firmatlo.png';
 
-        // Logika statusu i widoczności przycisku AI
-        if (s === 'alert') {
-            statBox.innerHTML = "● PRZEGLĄD WYMAGANY!";
-            statBox.style.color = "#e74c3c";
-            statBox.style.borderColor = "#e74c3c";
-            statBox.style.background = "rgba(231, 76, 60, 0.1)";
-            aiBtn.classList.add('hidden');
-        } else {
-            statBox.innerHTML = "● STATUS: Przegląd aktualny";
-            statBox.style.color = "#2ecc71";
-            statBox.style.borderColor = "#2ecc71";
-            statBox.style.background = "rgba(46, 204, 113, 0.1)";
-            aiBtn.classList.remove('hidden');
-        }
+            // STATUS
+            const sBox = document.getElementById('status-box');
+            if(data.status === 'alert') {
+                sBox.innerHTML = "● PRZEGLĄD WYMAGANY!";
+                sBox.style.color = "#e74c3c";
+                sBox.style.background = "rgba(231, 76, 60, 0.15)";
+                document.getElementById('ai-btn').classList.add('hidden');
+            } else {
+                sBox.innerHTML = "● Status: Przegląd aktualny";
+                sBox.style.color = "#2ecc71";
+                sBox.style.background = "rgba(46, 204, 113, 0.15)";
+                document.getElementById('ai-btn').classList.remove('hidden');
+            }
+        });
     };
 </script>
-
 </body>
 </html>
