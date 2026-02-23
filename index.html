@@ -12,6 +12,15 @@
             --card-bg: rgba(255, 255, 255, 0.05);
             --text-light: #ffffff;
         }
+        @keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-15px); }
+}
+
+.logo-container {
+    margin-bottom: 20px;
+    animation: bounce 3s infinite ease-in-out; /* Przywrócenie animacji */
+}
 
         body {
             font-family: 'Montserrat', sans-serif;
