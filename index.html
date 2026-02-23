@@ -198,7 +198,7 @@
         document.getElementById('machine-sn').innerText = "SN: " + (sn || "BŁĄD");
 
         // Połączenie z API CRM (Podstaw pod to swój adres)
-        fetch(`https://ADRES-CRM.pl/api/get?sn=${sn}`)
+        fetch(`baza.json`)
         .then(res => res.json())
         .then(data => {
             document.getElementById('machine-name').innerText = data.pelna_nazwa;
