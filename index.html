@@ -88,9 +88,13 @@
     width: auto !important;
     height: auto !important;
     object-fit: contain !important;
-    /* Usunięcie ewentualnych marginesów, które mogły spychać logo */
-    margin: 0 !important; 
+    display: block !important;
+    /* Gwarancja braku przesunięć bocznych */
+    margin: 0 auto !important; 
     padding: 0 !important;
+    /* Dodatkowe wymuszenie pozycji środkowej */
+    position: relative !important;
+    left: 0 !important;
 }
 
         .sn-badge {
